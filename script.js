@@ -1,11 +1,11 @@
 const container = documnet.querySelector('.container');
-const Search = document.querySelector('search-box button');
+const search = document.querySelector('.search-box button');
 const weatherBox = documnent.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 const cityHide = document.querySelector('.city-hide');
 
-Search.addEventListener('click',() =>
+search.addEventListener('click',() =>
 {
    const APIKey = '98740f4ebc0d63bc0f8ba70090e5a091';
    const city = document.querySelector('.search-box input').Value;
@@ -13,7 +13,7 @@ Search.addEventListener('click',() =>
    if(city == '')
    return;
 
-   featch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`).then(Response => Response.json ()).then(json => {
+   featch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`).then(response => response.json ()).then(json => {
             
             if(json.cod == '404')
             {  
@@ -96,10 +96,10 @@ Search.addEventListener('click',() =>
                 elCloneInfoWeather.id = 'clone-info-weather';
                 elCloneInfoWeather.classList.add('active-clone');
  
-                elCloneInfoHumidity.id = 'clone-info-weather';
+                elCloneInfoHumidity.id = 'clone-info-humidity';
                 elCloneInfoHumidity.classList.add('active-clone');
 
-                elCloneInfoWind.id = 'clone-info-weather';
+                elCloneInfoWind.id = 'clone-info-wind';
                 elCloneInfoWind.classList.add('active-clone');
 
                 setTimeout(() => {
@@ -127,7 +127,9 @@ Search.addEventListener('click',() =>
                     cloneInfoWindFirst.classList.remove('active-clone');
 
                     setTimeout (() => {
-
+                        cloneInfoWeatherFirst.remove();
+                        cloneInfoHumidityFirst.remove();
+                        cloneInfoWindFirst.remove();
                     }, 2200);
                 }
                 
