@@ -5,7 +5,7 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Poppins' ,sans-serif;
+    font-family: "Poppins" ,sans-serif;
    
 }
 
@@ -122,23 +122,23 @@ body
 
 .weather-box, .weather-detalis, .not-found
 {
-   overflow: hidden;
+    overflow: hidden;
     visibility: hidden;
 }
 
-.weather-box.active, .weather-detalis.active, .not-found.active
+.weather-box .active, .weather-detalis .active, .not-found .active
 {
     visibility: visible;
 }
 
 .weather-box .box, .not-found .box
 {
-    transform:translate(-100%);
+    transform:translateY(-100%);
 }
 
-.weather-box .active .box, .not-found .zctive .box
+.weather-box .active .box, .not-found .active .box
 {
-    transform:translate(0%);
+    transform:translateY(0%);
     transition: transform 1s ease;
     transition-delay: .6s;
 }
@@ -290,7 +290,7 @@ body
    transition-delay:0s;
 }
 
-.active-clone #clone-info-weather .weather
+.active-clone#clone-info-weather .weather
 {
     transform: translateY(0%);
 }
@@ -301,7 +301,7 @@ body
     transition: transform 1s ease;
 }
 
-.active-clone #clone-info-humidity span, .active-clone #clone-info-wind span 
+.active-clone#clone-info-humidity span, .active-clone#clone-info-wind span 
 {
     transform: translateY(0%);
 }
