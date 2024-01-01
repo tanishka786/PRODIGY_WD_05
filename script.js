@@ -24,6 +24,7 @@ search.addEventListener("click", () => {
                 error404.classList.add("active");
                 return;
             }
+            console.log("json", json);
 
             const image = document.querySelector(".weather-box img");
             const temperature = document.querySelector(
@@ -52,33 +53,35 @@ search.addEventListener("click", () => {
                     container.classList.remove("active");
                 }, 2500);
 
-                switch (json.weather[0].main) {
+                const weatherMain = json.weather[0].main;
+                console.log("weatherMain", weatherMain);
+                switch (weatherMain) {
                     case "Clear":
-                        image.src = "assets/clear.png";
+                        image.src = "./assets/clear.png";
                         break;
 
                     case "Rain":
-                        image.src = "assets/rain.png";
+                        image.src = "./assets/rain.png";
                         break;
 
                     case "Snow":
-                        image.src = "assets/snow.png";
+                        image.src = "./assets/snow.png";
                         break;
 
                     case "Clouds":
-                        image.src = "assets/cloud.png";
+                        image.src = "./assets/cloud.png";
                         break;
 
                     case "Mist":
-                        image.src = "assets/mist.png";
+                        image.src = "./assets/mist.png";
                         break;
 
                     case "Haze":
-                        image.src = "assets/mist.png";
+                        image.src = "./assets/mist.png";
                         break;
 
                     default:
-                        image.src = "assets/cloud.png";
+                        image.src = "./assets/cloud.png";
                 }
 
                 temperature.innerHTML = `${parseInt(
@@ -118,18 +121,18 @@ search.addEventListener("click", () => {
                 }, 2200);
 
                 const cloneInfoWeather = document.querySelectorAll(
-                    ".info-weather .active-clone",
+                    ".info-weather.active-clone",
                 );
                 const totalCloneInfoWeather = cloneInfoWeather.length;
                 const cloneInfoWeatherFirst = cloneInfoWeather[0];
 
                 const cloneInfoHumidity = document.querySelectorAll(
-                    ".info-Humidity .active-clone",
+                    ".info-Humidity.active-clone",
                 );
                 const cloneInfoHumidityFirst = cloneInfoHumidity[0];
 
                 const cloneInfoWind = document.querySelectorAll(
-                    ".info-Humidity .active-clone",
+                    ".info-Humidity.active-clone",
                 );
                 const cloneInfoWindFirst = cloneInfoWind[0];
 
